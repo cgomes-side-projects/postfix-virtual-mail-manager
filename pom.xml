@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.springframework</groupId>
-    <artifactId>gs-rest-service</artifactId>
+    <groupId>org.pvmm</groupId>
+    <artifactId>postfix-vitual-mail-manager</artifactId>
     <version>0.1.0</version>
 
     <parent>
@@ -18,6 +18,25 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.2.1.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.36</version>
+        </dependency>
+
     </dependencies>
 
     <properties>
@@ -30,6 +49,24 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <user>root</user>
+                    <password>123456789</password>
+                    <url>jdbc:mysql://localhost:3306/</url>
+                    <outOfOrder>false</outOfOrder>
+                    <schemas>
+                        <schema>pvmm_db</schema>
+                    </schemas>
+                    <locations>
+                        <location>classpath:db.migration</location>
+                    </locations>
+                </configuration>
             </plugin>
         </plugins>
     </build>
