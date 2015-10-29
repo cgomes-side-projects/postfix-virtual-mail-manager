@@ -1,4 +1,4 @@
-package pvmm.hello;
+package com.pvmm.hello;
 
 
 public class Greeting {
