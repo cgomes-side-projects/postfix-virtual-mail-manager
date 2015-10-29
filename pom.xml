@@ -82,19 +82,10 @@
             <!--<version>${spring.security.version}</version>-->
         <!--</dependency>-->
 
-                        <!--<dependency>-->
-                            <!--<groupId>javax.servlet.jsp.jstl</groupId>-->
-                            <!--<artifactId>jstl-api</artifactId>-->
-                            <!--<version>1.2</version>-->
-                            <!--<scope>compile</scope>-->
-                        <!--</dependency>-->
-
-                        <!--<dependency>-->
-                            <!--<groupId>org.glassfish.web</groupId>-->
-                            <!--<artifactId>jstl-impl</artifactId>-->
-                            <!--<version>1.2</version>-->
-                            <!--<scope>compile</scope>-->
-                        <!--</dependency>-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
 
 
         <!--<dependency>-->
