@@ -53,7 +53,12 @@ module.exports = function(grunt) {
 
 
     uglify: {
-      options: { },
+      options: {
+        mangle: false,
+        quoteStyle: 3,//manter a atual
+        //beautify: false,
+        //compress: true
+      },
       dist: {
         files: [
           {
