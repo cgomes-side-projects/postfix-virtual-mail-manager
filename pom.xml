@@ -13,6 +13,13 @@
         <version>1.2.6.RELEASE</version>
     </parent>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <spring.boot.version>1.2.6.RELEASE</spring.boot.version>
+        <spring.framework.version>4.2.2.RELEASE</spring.framework.version>
+        <spring.security.version>4.0.2.RELEASE</spring.security.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -24,13 +31,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>1.2.6.RELEASE</version>
+            <version>${spring.boot.version}</version>
         </dependency>
 
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->
             <!--<artifactId>spring-boot-starter-test</artifactId>-->
-            <!--<version>1.2.6.RELEASE</version>-->
+            <!--<version>${spring.boot.version}</version>-->
             <!--<scope>test</scope>-->
         <!--</dependency>-->
 
@@ -39,14 +46,14 @@
         <!--<dependency>-->
             <!--<groupId>org.springframework</groupId>-->
             <!--<artifactId>spring-jdbc</artifactId>-->
-            <!--<version>4.2.1.RELEASE</version>-->
+            <!--<version>${spring.framework.version}</version>-->
         <!--</dependency>-->
 
 
         <!--<dependency>-->
             <!--<groupId>org.springframework</groupId>-->
             <!--<artifactId>spring-webmvc</artifactId>-->
-            <!--<version>4.2.1.RELEASE</version>-->
+            <!--<version>${spring.framework.version}</version>-->
         <!--</dependency>-->
 
 
@@ -54,40 +61,40 @@
         <!--<dependency>-->
             <!--<groupId>org.springframework.security</groupId>-->
             <!--<artifactId>spring-security-core</artifactId>-->
-            <!--<version>4.0.2.RELEASE</version>-->
+            <!--<version>${spring.security.version}</version>-->
         <!--</dependency>-->
 
         <!--<dependency>-->
             <!--<groupId>org.springframework.security</groupId>-->
             <!--<artifactId>spring-security-config</artifactId>-->
-            <!--<version>4.0.2.RELEASE</version>-->
+            <!--<version>${spring.security.version}</version>-->
         <!--</dependency>-->
 
         <!--<dependency>-->
             <!--<groupId>org.springframework.security</groupId>-->
             <!--<artifactId>spring-security-taglibs</artifactId>-->
-            <!--<version>4.0.2.RELEASE</version>-->
+            <!--<version>${spring.security.version}</version>-->
         <!--</dependency>-->
 
         <!--<dependency>-->
             <!--<groupId>org.springframework.security</groupId>-->
             <!--<artifactId>spring-security-web</artifactId>-->
-            <!--<version>4.0.2.RELEASE</version>-->
+            <!--<version>${spring.security.version}</version>-->
         <!--</dependency>-->
 
-        <!--<dependency>-->
-            <!--<groupId>javax.servlet.jsp.jstl</groupId>-->
-            <!--<artifactId>jstl-api</artifactId>-->
-            <!--<version>1.2</version>-->
-            <!--<scope>compile</scope>-->
-        <!--</dependency>-->
+                        <!--<dependency>-->
+                            <!--<groupId>javax.servlet.jsp.jstl</groupId>-->
+                            <!--<artifactId>jstl-api</artifactId>-->
+                            <!--<version>1.2</version>-->
+                            <!--<scope>compile</scope>-->
+                        <!--</dependency>-->
 
-        <!--<dependency>-->
-            <!--<groupId>org.glassfish.web</groupId>-->
-            <!--<artifactId>jstl-impl</artifactId>-->
-            <!--<version>1.2</version>-->
-            <!--<scope>compile</scope>-->
-        <!--</dependency>-->
+                        <!--<dependency>-->
+                            <!--<groupId>org.glassfish.web</groupId>-->
+                            <!--<artifactId>jstl-impl</artifactId>-->
+                            <!--<version>1.2</version>-->
+                            <!--<scope>compile</scope>-->
+                        <!--</dependency>-->
 
 
         <!--<dependency>-->
@@ -104,13 +111,10 @@
 
     </dependencies>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
-
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -142,10 +146,12 @@
             <url>https://repo.spring.io/libs-release</url>
         </repository>
     </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>spring-releases</id>
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
+
 </project>
