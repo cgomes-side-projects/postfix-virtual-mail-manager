@@ -2,6 +2,8 @@
 /*.iml
 
 node_modules/
+bower_components/
+.sass-cache/
 
 ### Maven template
 target/

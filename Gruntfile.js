@@ -7,9 +7,11 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
-
+    distPath: 'src/main/webapp/assets',
+    sourcesPath: 'src/front',
 
     watch: {
       gruntfile: {
@@ -23,24 +25,77 @@ module.exports = function(grunt) {
     },
 
 
-    concat: {
+    // Compiles Sass to CSS and generates necessary files if requested
+    compass: {
       options: {
-        stripBanners: true
+        sassDir: 'src/front/styles',
+        cssDir: '<%= distPath %>/styles',
+        generatedImagesDir: '<%= distPath %>/images/generated',
+        imagesDir: 'src/front/images',
+        javascriptsDir: 'src/front/scripts',
+        fontsDir: 'src/front/styles/fonts',
+        importPath: './bower_components',
+        httpImagesPath: '/images',
+        httpGeneratedImagesPath: '/images/generated',
+        httpFontsPath: '/fonts',
+        relativeAssets: true,
+        assetCacheBuster: false,
+        raw: 'Sass::Script::Number.precision = 10\n'
       },
       dist: {
-        src: ['lib/<%= pkg.name %>.js'],
-        dest: 'dist/<%= pkg.name %>.js'
+        options: {
+          debugInfo: true,
+          generatedImagesDir: '<%= distPath %>/images/generated'
+        }
       }
     },
 
 
+
     uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
+      options: { },
       dist: {
-        src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
+        files: [
+          {
+            src: [
+              'bower_components/jquery/dist/jquery.js',
+              'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js'
+            ],
+            dest: '<%= distPath %>/js/plugins.min.js'
+          },
+          {
+            src: '<%= sourcesPath %>/js/**/*',
+            dest: '<%= distPath %>/js/scripts.min.js'
+          }
+        ]
+      }
+    },
+
+
+    copy: {
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: 'bower_components/bootstrap-sass/assets/',
+            src: 'fonts/bootstrap/*',
+            dest: '<%= distPath %>'
+          }
+        ]
+      }
+    },
+
+
+    // Empties folders to start fresh
+    clean: {
+      dist: {
+        files: [{
+          dot: true,
+          src: [
+            '<%= distPath %>/fonts/**/*',
+            '<%= distPath %>/styles/**/*'
+          ]
+        }]
       }
     },
 
@@ -85,4 +140,13 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', []);
+
+
+  grunt.registerTask('build', [
+    'clean',
+    'copy',
+    'compass',
+    'uglify'
+  ]);
+
 };

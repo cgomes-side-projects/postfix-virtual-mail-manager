@@ -1,5 +1,10 @@
 'use strict';
+(function () {
 
-function saci() {
-  alert('saci');
-}
+  function saci() {
+    console.log('teste');
+  }
+
+  saci();
+})();
+
