@@ -1,0 +1,27 @@
+{
+  "name": "pvmm",
+  "description": "Postfix Virtual Mail Manager",
+  "main": "",
+  "authors": [
+    "Carlos A. Gomes"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "postfix"
+  ],
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

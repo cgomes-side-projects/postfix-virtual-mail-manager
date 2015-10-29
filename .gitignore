@@ -1,6 +1,8 @@
 .idea/
 /*.iml
 
+node_modules/
+
 ### Maven template
 target/
 pom.xml.tag
