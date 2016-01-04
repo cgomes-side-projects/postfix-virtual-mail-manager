@@ -2,10 +2,19 @@
 <%@attribute name="extraStyles" fragment="true"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html >
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Listing</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Email manager</title>
+  <%-- TODO create a way to update the page title --%>
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
   <!-- bootstrap -->
   <link rel="stylesheet" href="<c:url value='/assets/styles/main.css'/>">
@@ -34,32 +43,32 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                  <li>
+                <li>
                     <a href="<c:url value='/product/form'/>">
                       <i class="glyphicon glyphicon-plus-sign"></i>
                       Add product
                     </a>
-                  </li>
+                </li>
 	              <li>
                     <a href="<c:url value='/product'/>">
                       <i class="glyphicon glyphicon-menu-hamburger"></i>
                       List product
                     </a>
-                  </li>
-				  <li role="separator" class="divider"></li>
+                </li>
+				        <li role="separator" class="divider"></li>
 	              <li>
                     <a href="<c:url value='/category/form'/>">
                       <i class="glyphicon glyphicon-plus-sign"></i>
                       Add category
                     </a>
-                  </li>
+                </li>
 	              <li>
                     <a href="<c:url value='/category'/>">
                       <i class="glyphicon glyphicon-menu-hamburger"></i>
                       List category
                     </a>
-                  </li>
-				  <li role="separator" class="divider"></li>
+                </li>
+				      <li role="separator" class="divider"></li>
             </ul>
           </li>
         </ul>
