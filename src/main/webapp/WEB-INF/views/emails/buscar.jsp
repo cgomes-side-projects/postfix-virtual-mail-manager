@@ -1,11 +1,12 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib tagdir="/WEB-INF/tags/templates/" prefix="template" %>
+<%--@elvariable id="emails" type="java.util.List<com.pvmm.emails.email.Email>"--%>
 
 <template:admin>
 
   <div class="container">
-
 
       <fieldset class="panel panel-primary">
         <header class="panel-heading">
@@ -36,7 +37,7 @@
                 </select>
               </div>
               <div class="col-sm-8">
-                registros por vez
+                registros por página
               </div>
             </div>
 
@@ -49,6 +50,42 @@
           </form>
         </main>
       </fieldset>
+
+
+    <c:choose>
+      <c:when test="${ empty emails }">
+        <div class="bg-danger text-center">
+          <p>
+            <i class="glyphicon glyphicon-info-sign"></i>
+            Nenhum e-mail encontrado
+          </p>
+        </div>
+      </c:when>
+      <c:otherwise>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Email</th>
+              <th>Criado em</th>
+              <th>Ativo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${ emails }" var="email">
+              <tr>
+                <td>${ email.getId() }</td>
+                <td>${ email.getEmail() }</td>
+                <td>${ email.getDateCreated() }</td>
+                <td>${ email.getAtivo() }</td>
+              </tr>
+            </c:forEach>
+            </tbody>
+          </table>
+        </div>
+      </c:otherwise>
+    </c:choose>
 
 
   </div>
