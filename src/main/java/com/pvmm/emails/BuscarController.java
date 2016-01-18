@@ -2,6 +2,7 @@ package com.pvmm.emails;
 
 import com.pvmm.emails.email.Email;
 import com.pvmm.emails.email.EmailRepository;
+import com.pvmm.utils.Paginator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,12 +34,14 @@ public class BuscarController {
 
         modelAndView = new ModelAndView("emails/buscar");
 
-        this.searchOnDb(email, limit, page);
+        Page<Email> emails = this.searchOnDb(email, limit, page);
+        this.preparePaginator(emails);
+
         return this.renderView();
     }
 
 
-    private void searchOnDb(String email, String limitParam, String pageParam) {
+    private Page<Email> searchOnDb(String email, String limitParam, String pageParam) {
 
         int limit = Integer.parseInt(limitParam);
         int pageNum = Integer.parseInt(pageParam);
@@ -49,6 +52,15 @@ public class BuscarController {
         );
 
         modelAndView.addObject("emails",  emails);
+
+        return emails;
+    }
+
+
+    private void preparePaginator( Page<Email> emails ) {
+        Paginator<Email> paginator = new Paginator<>(emails);
+
+        modelAndView.addObject("paginator", paginator);
     }
 
 
