@@ -2,7 +2,6 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib tagdir="/WEB-INF/tags/templates/" prefix="template" %>
-<%--@elvariable id="emails" type="java.util.List<com.pvmm.emails.email.Email>"--%>
 
 <template:admin>
 
@@ -62,6 +61,11 @@
         </div>
       </c:when>
       <c:otherwise>
+
+        <p class="bg-success text-center">
+          Foram encontrados: ${emails.getTotalElements() } registros
+        </p>
+
         <div class="table-responsive">
           <table class="table table-striped table-bordered">
             <thead>
@@ -73,7 +77,7 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${ emails }" var="email">
+            <c:forEach items="${ emails.getContent() }" var="email">
               <tr>
                 <td>${ email.getId() }</td>
                 <td>${ email.getEmail() }</td>
@@ -84,6 +88,30 @@
             </tbody>
           </table>
         </div>
+
+        <c:if test="${ emails.getTotalPages() > 1 }">
+          <nav class="text-center">
+            <ul class="pagination">
+              <li>
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </c:if>
+
+
       </c:otherwise>
     </c:choose>
 
