@@ -11,15 +11,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
 public class BuscarController {
 
     @Autowired
-    EmailRepository emailRepository;
+    private EmailRepository emailRepository;
 
-    ModelAndView modelAndView;
+    @Autowired
+    private HttpServletRequest request;
+
+    private ModelAndView modelAndView;
 
 
     @RequestMapping("/emails/buscar")
@@ -44,11 +48,11 @@ public class BuscarController {
     private Page<Email> searchOnDb(String email, String limitParam, String pageParam) {
 
         int limit = Integer.parseInt(limitParam);
-        int pageNum = Integer.parseInt(pageParam);
+        int pageNum = Integer.parseInt(pageParam) - 1;
 
         Page<Email> emails = emailRepository.findByEmailContaining(
             email,
-            new PageRequest(pageNum - 1, limit, Sort.Direction.ASC, "id")
+            new PageRequest(pageNum, limit, Sort.Direction.ASC, "id")
         );
 
         modelAndView.addObject("emails",  emails);
@@ -58,7 +62,7 @@ public class BuscarController {
 
 
     private void preparePaginator( Page<Email> emails ) {
-        Paginator<Email> paginator = new Paginator<>(emails);
+        Paginator<Email> paginator = new Paginator<>(emails, request);
 
         modelAndView.addObject("paginator", paginator);
     }

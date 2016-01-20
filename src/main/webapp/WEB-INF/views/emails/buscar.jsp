@@ -90,12 +90,8 @@
           </table>
         </div>
 
-        <p>
-          ${paginator.getStartButton()}
-        </p>
-
         <c:if test="${ emails.getTotalPages() > 1 }">
-          <utils:paginator instance="${paginator}"/>
+          <utils:paginator instance="${ paginator }"/>
         </c:if>
 
 
