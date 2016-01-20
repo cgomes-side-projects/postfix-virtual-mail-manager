@@ -1,151 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com</groupId>
-    <artifactId>pvmm</artifactId>
-    <version>0.1.0</version>
+  <groupId>com</groupId>
+  <artifactId>pvmm</artifactId>
+  <version>0.1.0</version>
 
-    <parent>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.3.1.RELEASE</version>
+  </parent>
+
+  <properties>
+    <java.version>1.8</java.version>
+    <spring.boot.version>1.3.1.RELEASE</spring.boot.version>
+    <spring.framework.version>4.2.2.RELEASE</spring.framework.version>
+    <spring.security.version>4.0.2.RELEASE</spring.security.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>${spring.boot.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-jasper</artifactId>
+      <version>8.0.23</version>
+      <scope>compile</scope>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <!--<dependency>-->
+      <!--<groupId>com.h2database</groupId>-->
+      <!--<artifactId>h2</artifactId>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+    <!--<groupId>org.springframework.boot</groupId>-->
+    <!--<artifactId>spring-boot-starter-test</artifactId>-->
+    <!--<version>${spring.boot.version}</version>-->
+    <!--<scope>test</scope>-->
+    <!--</dependency>-->
+
+
+    <!--<dependency>-->
+    <!--<groupId>org.springframework</groupId>-->
+    <!--<artifactId>spring-jdbc</artifactId>-->
+    <!--<version>${spring.framework.version}</version>-->
+    <!--</dependency>-->
+
+
+    <!--<dependency>-->
+    <!--<groupId>org.springframework</groupId>-->
+    <!--<artifactId>spring-webmvc</artifactId>-->
+    <!--<version>${spring.framework.version}</version>-->
+    <!--</dependency>-->
+
+
+    <!-- spring security -->
+    <!--<dependency>-->
+    <!--<groupId>org.springframework.security</groupId>-->
+    <!--<artifactId>spring-security-core</artifactId>-->
+    <!--<version>${spring.security.version}</version>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+    <!--<groupId>org.springframework.security</groupId>-->
+    <!--<artifactId>spring-security-config</artifactId>-->
+    <!--<version>${spring.security.version}</version>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+    <!--<groupId>org.springframework.security</groupId>-->
+    <!--<artifactId>spring-security-taglibs</artifactId>-->
+    <!--<version>${spring.security.version}</version>-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+    <!--<groupId>org.springframework.security</groupId>-->
+    <!--<artifactId>spring-security-web</artifactId>-->
+    <!--<version>${spring.security.version}</version>-->
+    <!--</dependency>-->
+
+
+    <!--<dependency>-->
+    <!--<groupId>org.flywaydb</groupId>-->
+    <!--<artifactId>flyway-core</artifactId>-->
+    <!--<version>3.2.1</version>-->
+    <!--</dependency>-->
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.36</version>
+    </dependency>
+
+  </dependencies>
+
+
+  <build>
+    <plugins>
+
+      <plugin>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.2.6.RELEASE</version>
-    </parent>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <fork>true</fork>
+        </configuration>
+      </plugin>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <spring.boot.version>1.2.6.RELEASE</spring.boot.version>
-        <spring.framework.version>4.2.2.RELEASE</spring.framework.version>
-        <spring.security.version>4.0.2.RELEASE</spring.security.version>
-    </properties>
+      <!--<plugin>-->
+      <!--<groupId>org.flywaydb</groupId>-->
+      <!--<artifactId>flyway-maven-plugin</artifactId>-->
+      <!--<version>3.2.1</version>-->
+      <!--<configuration>-->
+      <!--<user>root</user>-->
+      <!--<password>123456789</password>-->
+      <!--<url>jdbc:mysql://localhost:3306/</url>-->
+      <!--<outOfOrder>false</outOfOrder>-->
+      <!--<schemas>-->
+      <!--<schema>pvmm_db</schema>-->
+      <!--</schemas>-->
+      <!--<locations>-->
+      <!--<location>classpath:db.migration</location>-->
+      <!--</locations>-->
+      <!--</configuration>-->
+      <!--</plugin>-->
+    </plugins>
+  </build>
 
-    <dependencies>
+  <repositories>
+    <repository>
+      <id>spring-releases</id>
+      <url>https://repo.spring.io/libs-release</url>
+    </repository>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
+    <repository>
+      <id>org.jboss.repository.releases</id>
+      <name>JBoss Maven Release Repository</name>
+      <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+    </repository>
+  </repositories>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-        </dependency>
-
-
-
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-jasper</artifactId>
-            <version>8.0.23</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-test</artifactId>-->
-            <!--<version>${spring.boot.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-
-
-
-        <!--<dependency>-->
-            <!--<groupId>org.springframework</groupId>-->
-            <!--<artifactId>spring-jdbc</artifactId>-->
-            <!--<version>${spring.framework.version}</version>-->
-        <!--</dependency>-->
-
-
-        <!--<dependency>-->
-            <!--<groupId>org.springframework</groupId>-->
-            <!--<artifactId>spring-webmvc</artifactId>-->
-            <!--<version>${spring.framework.version}</version>-->
-        <!--</dependency>-->
-
-
-        <!-- spring security -->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.security</groupId>-->
-            <!--<artifactId>spring-security-core</artifactId>-->
-            <!--<version>${spring.security.version}</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.security</groupId>-->
-            <!--<artifactId>spring-security-config</artifactId>-->
-            <!--<version>${spring.security.version}</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.security</groupId>-->
-            <!--<artifactId>spring-security-taglibs</artifactId>-->
-            <!--<version>${spring.security.version}</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.security</groupId>-->
-            <!--<artifactId>spring-security-web</artifactId>-->
-            <!--<version>${spring.security.version}</version>-->
-        <!--</dependency>-->
-
-
-        <!--<dependency>-->
-            <!--<groupId>org.flywaydb</groupId>-->
-            <!--<artifactId>flyway-core</artifactId>-->
-            <!--<version>3.2.1</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-            <!--<groupId>mysql</groupId>-->
-            <!--<artifactId>mysql-connector-java</artifactId>-->
-            <!--<version>5.1.36</version>-->
-        <!--</dependency>-->
-
-    </dependencies>
-
-
-    <build>
-        <plugins>
-
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <!--<plugin>-->
-                <!--<groupId>org.flywaydb</groupId>-->
-                <!--<artifactId>flyway-maven-plugin</artifactId>-->
-                <!--<version>3.2.1</version>-->
-                <!--<configuration>-->
-                    <!--<user>root</user>-->
-                    <!--<password>123456789</password>-->
-                    <!--<url>jdbc:mysql://localhost:3306/</url>-->
-                    <!--<outOfOrder>false</outOfOrder>-->
-                    <!--<schemas>-->
-                        <!--<schema>pvmm_db</schema>-->
-                    <!--</schemas>-->
-                    <!--<locations>-->
-                        <!--<location>classpath:db.migration</location>-->
-                    <!--</locations>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-        </plugins>
-    </build>
-
-    <repositories>
-        <repository>
-            <id>spring-releases</id>
-            <url>https://repo.spring.io/libs-release</url>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-releases</id>
-            <url>https://repo.spring.io/libs-release</url>
-        </pluginRepository>
-    </pluginRepositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>spring-releases</id>
+      <url>https://repo.spring.io/libs-release</url>
+    </pluginRepository>
+  </pluginRepositories>
 
 </project>
