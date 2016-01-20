@@ -31,10 +31,7 @@
 
   <header class="app-header navbar" role="menu">
     <div class="navbar-header bg-dark">
-      <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse">
-        <i class="glyphicon glyphicon-cog"></i>
-      </button>
-      <button class="pull-right visible-xs" ui-toggle-class="off-screen" target=".app-aside" ui-scroll="app">
+      <button class="pull-right visible-xs app-sidebar-toggle">
         <i class="glyphicon glyphicon-align-justify"></i>
       </button>
 
@@ -43,26 +40,10 @@
         <span class="hidden-folded m-l-xs">Email Admin</span>
       </a>
     </div>
-
-    <!-- navbar collapse -->
-    <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
-      <!-- buttons -->
-      <div class="nav navbar-nav hidden-xs">
-        <a href="#" class="btn no-shadow navbar-btn" ui-toggle-class="app-aside-folded" target=".app">
-          <i class="fa fa-dedent fa-fw text"></i>
-          <i class="fa fa-indent fa-fw text-active"></i>
-        </a>
-        <a href="#" class="btn no-shadow navbar-btn" ui-toggle-class="show" target="#aside-user">
-          <i class="icon-user fa-fw"></i>
-        </a>
-      </div>
-      <!-- / buttons -->
-
-    </div>
     <!-- / navbar collapse -->
   </header>
 
-  <aside class="app-sidebar hidden-xs bg-dark">
+  <aside class="app-sidebar hidden-xs bg-dark collapse">
     <ul class="nav nav-sidebar">
 
       <li class="header">Gerenciar e-mails</li>

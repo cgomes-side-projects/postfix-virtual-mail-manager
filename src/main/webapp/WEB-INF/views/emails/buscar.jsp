@@ -8,96 +8,76 @@
 
   <div class="container-fluid">
 
-      <fieldset class="panel panel-primary">
+      <fieldset class="panel panel-default">
+
         <header class="panel-heading">
           ${title}
         </header>
-        <main class="panel-body">
-          <form class="form-horizontal" novalidate>
 
-            <div class="form-group">
-              <label class="col-sm-2 text-right control-label" for="fieldEmail">
-                E-mail:
-              </label>
-              <div class="col-sm-10">
-                <input type="email" class="form-control" id="fieldEmail" placeholder="Email" name="email" value="${ param.email }">
+        <form class="container-fluid wrapper" novalidate>
+
+          <div class="row">
+            <div class="col-sm-8 col-sm-push-2">
+              <div class="input-group">
+                <input type="email" class="form-control input-sm" placeholder="Digite um nome para filtrar" name="email" value="${ param.email }">
+                <span class="input-group-btn">
+                  <button class="btn btn-sm btn-primary" type="submit">Filtrar</button>
+                </span>
               </div>
             </div>
+          </div>
+        </form>
 
-            <div class="form-group">
-              <label class="col-sm-2 text-right control-label" for="fieldLimit">
-                Exibir:
-              </label>
-              <div class="col-sm-2">
-                <select class="form-control" name="limit" id="fieldLimit">
-                  <option value="25" ${ param.limit == 25 ? 'selected="selected"' : '' }>25</option>
-                  <option value="50" ${ param.limit == 50 ? 'selected="selected"' : '' }>50</option>
-                  <option value="150" ${ param.limit == 150 ? 'selected="selected"' : '' }>150</option>
-                  <option value="300" ${ param.limit == 300 ? 'selected="selected"' : '' }>300</option>
-                </select>
-              </div>
-              <div class="col-sm-8">
-                registros por página
-              </div>
+        <c:choose>
+          <c:when test="${ empty emails }">
+            <div class="bg-danger text-center">
+              <p>
+                <i class="glyphicon glyphicon-info-sign"></i>
+                Nenhum e-mail encontrado
+              </p>
+            </div>
+          </c:when>
+          <c:otherwise>
+
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Email</th>
+                  <th>Criado em</th>
+                  <th>Ativo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${ emails.getContent() }" var="email">
+                  <tr>
+                    <td>${ email.getId() }</td>
+                    <td>${ email.getEmail() }</td>
+                    <td>${ email.getDateCreated() }</td>
+                    <td>${ email.getAtivo() }</td>
+                  </tr>
+                </c:forEach>
+                </tbody>
+              </table>
             </div>
 
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Buscar</button>
-              </div>
-            </div>
 
-          </form>
-        </main>
+          </c:otherwise>
+        </c:choose>
+
+
+        <footer class="panel-footer">
+          <div class="row">
+            <aside class="col-md-6 text-muted text-center"> Exibindo ${ paginator.getPageFirstItemNumber() } - ${ paginator.getPageLastItemNumber() }  de ${ paginator.getTotalItems() } registros</aside>
+            <aside class="col-md-6">
+              <c:if test="${ emails.getTotalPages() > 1 }">
+                <utils:paginator instance="${ paginator }"/>
+              </c:if>
+            </aside>
+          </div>
+        </footer>
       </fieldset>
-
-
-    <c:choose>
-      <c:when test="${ empty emails }">
-        <div class="bg-danger text-center">
-          <p>
-            <i class="glyphicon glyphicon-info-sign"></i>
-            Nenhum e-mail encontrado
-          </p>
-        </div>
-      </c:when>
-      <c:otherwise>
-
-        <p class="bg-success text-center">
-          Foram encontrados: ${emails.getTotalElements() } registros
-        </p>
-
-        <div class="table-responsive">
-          <table class="table table-striped table-bordered">
-            <thead>
-            <tr>
-              <th>ID</th>
-              <th>Email</th>
-              <th>Criado em</th>
-              <th>Ativo</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${ emails.getContent() }" var="email">
-              <tr>
-                <td>${ email.getId() }</td>
-                <td>${ email.getEmail() }</td>
-                <td>${ email.getDateCreated() }</td>
-                <td>${ email.getAtivo() }</td>
-              </tr>
-            </c:forEach>
-            </tbody>
-          </table>
-        </div>
-
-        <c:if test="${ emails.getTotalPages() > 1 }">
-          <utils:paginator instance="${ paginator }"/>
-        </c:if>
-
-
-      </c:otherwise>
-    </c:choose>
-
 
   </div>
 

@@ -3,6 +3,16 @@
 
 body {
   overflow-x: hidden;
+  background: #f0f3f4;
+  height: 100%;
+}
+
+*:focus {
+  outline: 0!important;
+}
+
+.wrapper {
+  padding: 15px;
 }
 
 .bg-dark {
@@ -25,8 +35,24 @@ body {
 }
 
 .app-header {
+  z-index: 2000;
+  border: none;
+
   .navbar-brand {
     color: #eaebed !important;
+  }
+
+  @media (min-width: $screen-sm-min ) {
+    width: 200px;
+  }
+
+  button {
+    padding: 10px 17px;
+    font-size: 16px;
+    line-height: 30px;
+    text-decoration: none;
+    background-color: transparent;
+    border: 0;
   }
 }
 
@@ -47,7 +73,25 @@ body {
   }
 
   @media ( max-width: $screen-sm ) {
-    float: none;
+    //float: none;
+    width: 0;
+    display: block !important;
+    overflow: hidden;
+
+    transition: width .2s ease;
+
+    .show-sidebar  & {
+      position: fixed;
+      top: 50px;
+      padding-top: 20px;
+      bottom: 0;
+      z-index: 1010;
+      width: 60%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      visibility: visible;
+      webkit-overflow-scrolling: touch;
+    }
   }
 
   .header {
@@ -66,19 +110,78 @@ body {
     font-size: 0;
   }
 
-  .nav > li > a {
-    padding: 5px 15px;
+  .nav {
+    min-width: 200px;
+
+    > li > a {
+      padding: 5px 15px;
+    }
+  }
+}
+
+
+.app-content {
+  margin-top: -60px;
+  margin-left: 200px;
+
+  @media (max-width: $screen-sm - 1) {
+    margin-left: 0;
+    margin-top: 0;
+
+    transition: transform .2s ease;
+
+    .show-sidebar & {
+      position: fixed;
+      top: 60px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1015;
+      width: 100%;
+      overflow: hidden;
+      background-color: #f0f3f4;
+      transform: translate3d(60%,0,0);
+      backface-visibility: hidden;
+    }
   }
 
 }
 
 
-.app-content {
-  margin-left: 200px;
-
-  background: rgb(240, 243, 244);
-
-  @media ( max-width: $screen-sm ) {
-    margin-left: 0;
+.panel {
+  .table-responsive .table {
+    tbody tr td,
+    thead tr th {
+      border-top: 1px solid #eaeff0;
+    }
   }
+}
+
+.panel-heading {
+
+  .panel-default & {
+    background-color: #f6f8f8;
+  }
+
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.panel-footer {
+
+  background-color: #fff;
+
+  .text-muted {
+    margin: 8px 0;
+    font-size: 12px;
+  }
+
+  .pagination {
+    margin: 0;
+  }
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #fafbfc;
 }

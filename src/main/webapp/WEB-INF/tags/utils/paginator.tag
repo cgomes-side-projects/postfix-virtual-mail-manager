@@ -1,7 +1,7 @@
 <%@tag pageEncoding="UTF-8"%>
 <%@ attribute name="instance" required="true" type="com.pvmm.utils.Paginator" %>
 <nav class="text-center">
-  <ul class="pagination">
+  <ul class="pagination pagination-sm">
 
     <li class="<%= instance.isFirst() ? "disabled" : ""  %>">
       <a <% if( ! instance.isFirst() ) { %>href="${ instance.getPageLink(1) }"<% } %> aria-label="Primeira página" title="Primeira página">

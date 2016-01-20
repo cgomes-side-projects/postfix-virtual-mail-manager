@@ -8,6 +8,8 @@ public class Paginator<T> {
     private static final int MIN_BUTTONS = 3;
     private static final int DEFAULT_VISIBLE_BUTTONS = 5;
 
+    private Page<T> page;
+
     private int maxButtons;
     private int totalPages;
     private int currentPage;
@@ -18,6 +20,10 @@ public class Paginator<T> {
     private boolean isFirst;
     private boolean isLast;
 
+    private long totalItems;
+    private long pageFirstItemNumber;
+    private long pageLastItemNumber;
+
     private String uri;
 
 
@@ -27,21 +33,24 @@ public class Paginator<T> {
 
 
     public Paginator(Page<T> page, HttpServletRequest request, int maxButtons) {
-        this.preparePageData(page);
+        this.page = page;
+
+        this.preparePageData();
         this.prepareUri(request);
 
         this.maxButtons = maxButtons;
 
         this.guessFirstButtonVisible();
         this.guessLastButtonVisible();
+        this.calculateItemsNumbers();
     }
 
 
-    private void preparePageData(Page<T> page) {
-        this.totalPages = page.getTotalPages();
-        this.currentPage = page.getNumber() + 1;
-        this.isFirst = page.isFirst();
-        this.isLast = page.isLast();
+    private void preparePageData() {
+        totalPages = page.getTotalPages();
+        currentPage = page.getNumber() + 1;
+        isFirst = page.isFirst();
+        isLast = page.isLast();
     }
 
 
@@ -92,6 +101,17 @@ public class Paginator<T> {
     }
 
 
+    private void calculateItemsNumbers() {
+        totalItems = page.getTotalElements();
+        pageFirstItemNumber = totalItems == 0 ? 0 : page.getNumber() * page.getSize() + 1;
+
+        pageLastItemNumber = pageFirstItemNumber + page.getSize() - 1;
+        if( pageLastItemNumber > totalItems ) {
+            pageLastItemNumber = totalItems;
+        }
+    }
+
+
     public String getPageLink( int pageNumber ) {
         return (this.uri + pageNumber);
     }
@@ -122,5 +142,17 @@ public class Paginator<T> {
 
     public boolean isLast() {
         return isLast;
+    }
+
+    public long getTotalItems() {
+        return totalItems;
+    }
+
+    public long getPageFirstItemNumber() {
+        return pageFirstItemNumber;
+    }
+
+    public long getPageLastItemNumber() {
+        return pageLastItemNumber;
     }
 }

@@ -18,9 +18,9 @@ module.exports = function(grunt) {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
       },
-      jshint: {
-        files: '<%= jshint.front.src %>',
-        tasks: ['jshint:front']
+      js: {
+        files: '<%= sourcesPath %>/js/**/*.js',
+        tasks: ['jshint:front', 'uglify:dev']
       },
       sass: {
         files: ['<%= sourcesPath %>/styles/**/*.scss', '!<%= sourcesPath %>/styles/main.scss'],
@@ -67,6 +67,14 @@ module.exports = function(grunt) {
             ],
             dest: '<%= distPath %>/js/plugins.min.js'
           },
+          {
+            src: '<%= sourcesPath %>/js/**/*',
+            dest: '<%= distPath %>/js/scripts.min.js'
+          }
+        ]
+      },
+      dev: {
+        files: [
           {
             src: '<%= sourcesPath %>/js/**/*',
             dest: '<%= distPath %>/js/scripts.min.js'
