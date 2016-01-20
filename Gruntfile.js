@@ -21,35 +21,34 @@ module.exports = function(grunt) {
       jshint: {
         files: '<%= jshint.front.src %>',
         tasks: ['jshint:front']
+      },
+      sass: {
+        files: ['<%= sourcesPath %>/styles/**/*.scss', '!<%= sourcesPath %>/styles/main.scss'],
+        tasks: ['sass:dev']
       }
     },
 
 
-    // Compiles Sass to CSS and generates necessary files if requested
-    compass: {
+    sass: {
       options: {
-        sassDir: 'src/front/styles',
-        cssDir: '<%= distPath %>/styles',
-        generatedImagesDir: '<%= distPath %>/images/generated',
-        imagesDir: 'src/front/images',
-        javascriptsDir: 'src/front/scripts',
-        fontsDir: 'src/front/styles/fonts',
-        importPath: './bower_components',
-        httpImagesPath: '/images',
-        httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/fonts',
-        relativeAssets: true,
-        assetCacheBuster: false,
-        raw: 'Sass::Script::Number.precision = 10\n'
+        sourceMap: false,
+        includePaths: ['bower_components/']
+      },
+      dev: {
+        options: {
+          outputStyle: 'expanded'
+        },
+        files: {
+          '<%= distPath %>/styles/admin-template.css': '<%= sourcesPath %>/styles/admin-template.scss'
+        }
       },
       dist: {
-        options: {
-          debugInfo: true,
-          generatedImagesDir: '<%= distPath %>/images/generated'
+        files: {
+          '<%= distPath %>/styles/main.css': '<%= sourcesPath %>/styles/main.scss',
+          '<%= distPath %>/styles/admin-template.css': '<%= sourcesPath %>/styles/admin-template.scss'
         }
       }
     },
-
 
 
     uglify: {

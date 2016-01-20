@@ -6,7 +6,7 @@
 
 <template:admin>
 
-  <div class="container">
+  <div class="container-fluid">
 
       <fieldset class="panel panel-primary">
         <header class="panel-heading">

@@ -1,0 +1,80 @@
+body {
+  overflow-x: hidden;
+}
+
+.bg-dark {
+  color: #a6a8b1;
+  background: #3a3f51;
+}
+
+.bg-dark .nav > li > a {
+  color: #b4b6bd;
+}
+
+.bg-dark .nav > li > a:hover {
+  color: #000;
+}
+
+.app-wrapper {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+}
+
+.app-header .navbar-brand {
+  color: #eaebed !important;
+}
+
+.app-sidebar {
+  display: block;
+  float: left;
+  width: 200px;
+}
+
+.app-sidebar:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  width: inherit;
+  background-color: inherit;
+  border: inherit;
+  content: "";
+}
+
+@media (max-width: 768px) {
+  .app-sidebar {
+    float: none;
+  }
+}
+
+.app-sidebar .header {
+  color: #FFF;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.app-sidebar .separator {
+  background-color: #2e3344;
+  width: 100%;
+  height: 2px;
+  margin: 15px 0 10px 0;
+  overflow: hidden;
+  font-size: 0;
+}
+
+.app-sidebar .nav > li > a {
+  padding: 5px 15px;
+}
+
+.app-content {
+  margin-left: 200px;
+  background: #f0f3f4;
+}
+
+@media (max-width: 768px) {
+  .app-content {
+    margin-left: 0;
+  }
+}

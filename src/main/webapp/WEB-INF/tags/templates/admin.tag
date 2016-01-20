@@ -18,7 +18,8 @@
   <![endif]-->
 
   <!-- bootstrap -->
-  <link rel="stylesheet" href="<c:url value='/assets/styles/main.css'/>">
+  <link rel="stylesheet" href="<c:url value='/assets/styles/main.css' />" />
+  <link rel="stylesheet" href="<c:url value='/assets/styles/admin-template.css' />" />
 
   <!-- style -->
    <jsp:invoke fragment="extraStyles"/>
@@ -26,59 +27,68 @@
 
 <body>
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
+<div class="app-wrapper">
 
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Gerenciamento de e-mails</a>
-      </div>
+  <header class="app-header navbar" role="menu">
+    <div class="navbar-header bg-dark">
+      <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse">
+        <i class="glyphicon glyphicon-cog"></i>
+      </button>
+      <button class="pull-right visible-xs" ui-toggle-class="off-screen" target=".app-aside" ui-scroll="app">
+        <i class="glyphicon glyphicon-align-justify"></i>
+      </button>
 
-      <div class="collapse navbar-collapse" id="menu">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a href="<c:url value='/product/form'/>">
-                      <i class="glyphicon glyphicon-plus-sign"></i>
-                      Add product
-                    </a>
-                </li>
-	              <li>
-                    <a href="<c:url value='/product'/>">
-                      <i class="glyphicon glyphicon-menu-hamburger"></i>
-                      List product
-                    </a>
-                </li>
-				        <li role="separator" class="divider"></li>
-	              <li>
-                    <a href="<c:url value='/category/form'/>">
-                      <i class="glyphicon glyphicon-plus-sign"></i>
-                      Add category
-                    </a>
-                </li>
-	              <li>
-                    <a href="<c:url value='/category'/>">
-                      <i class="glyphicon glyphicon-menu-hamburger"></i>
-                      List category
-                    </a>
-                </li>
-				      <li role="separator" class="divider"></li>
-            </ul>
-          </li>
-        </ul>
-
-      </div>
+      <a href="/" class="navbar-brand">
+        <i class="fa fa-btc"></i>
+        <span class="hidden-folded m-l-xs">Email Admin</span>
+      </a>
     </div>
-  </nav>
 
-	<jsp:doBody />
+    <!-- navbar collapse -->
+    <div class="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
+      <!-- buttons -->
+      <div class="nav navbar-nav hidden-xs">
+        <a href="#" class="btn no-shadow navbar-btn" ui-toggle-class="app-aside-folded" target=".app">
+          <i class="fa fa-dedent fa-fw text"></i>
+          <i class="fa fa-indent fa-fw text-active"></i>
+        </a>
+        <a href="#" class="btn no-shadow navbar-btn" ui-toggle-class="show" target="#aside-user">
+          <i class="icon-user fa-fw"></i>
+        </a>
+      </div>
+      <!-- / buttons -->
+
+    </div>
+    <!-- / navbar collapse -->
+  </header>
+
+  <aside class="app-sidebar hidden-xs bg-dark">
+    <ul class="nav nav-sidebar">
+
+      <li class="header">Gerenciar e-mails</li>
+      <li><a href="/emails/buscar">Buscar e-mails</a></li>
+      <li><a href="">Novo e-mail</a></li>
+
+      <li class="separator"></li>
+
+      <li class="header">Gerenciar Grupos</li>
+      <li><a href="">Buscar Grupos</a></li>
+      <li><a href="">Novo Grupo</a></li>
+
+      <li class="separator"></li>
+
+      <li class="header">Gerenciar Apelidos</li>
+      <li><a href="">Buscar Apelidos</a></li>
+
+    </ul>
+  </aside>
+
+  <main class="app-content">
+    <jsp:doBody />
+  </main>
+
+</div>
+
 
 
   <div class="hidden">
