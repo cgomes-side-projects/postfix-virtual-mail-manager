@@ -46,19 +46,28 @@
   <aside class="app-sidebar hidden-xs bg-dark collapse">
     <ul class="nav nav-sidebar">
 
-      <li class="header">Gerenciar e-mails</li>
+      <li class="header">
+        <i class="fa fa-envelope-o"></i>
+        Gerenciar e-mails
+      </li>
       <li><a href="/emails/buscar">Buscar e-mails</a></li>
       <li><a href="">Novo e-mail</a></li>
 
       <li class="separator"></li>
 
-      <li class="header">Gerenciar Grupos</li>
+      <li class="header">
+        <i class="fa fa-users"></i>
+        Gerenciar Grupos
+      </li>
       <li><a href="">Buscar Grupos</a></li>
       <li><a href="">Novo Grupo</a></li>
 
       <li class="separator"></li>
 
-      <li class="header">Gerenciar Apelidos</li>
+      <li class="header">
+        <i class="fa fa-sitemap fa-rotate-90"></i>
+        Gerenciar Apelidos
+      </li>
       <li><a href="">Buscar Apelidos</a></li>
 
     </ul>

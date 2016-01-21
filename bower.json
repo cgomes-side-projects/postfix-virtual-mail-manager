@@ -25,6 +25,7 @@
     "tests"
   ],
   "devDependencies": {
-    "bootstrap-sass": "~3.3.5"
+    "bootstrap-sass": "~3.3.5",
+    "font-awesome-sass": "~4.5.0"
   }
 }
