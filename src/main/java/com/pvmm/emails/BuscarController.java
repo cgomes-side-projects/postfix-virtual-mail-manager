@@ -50,7 +50,8 @@ public class BuscarController {
         int limit = Integer.parseInt(limitParam);
         int pageNum = Integer.parseInt(pageParam) - 1;
 
-        Page<Email> emails = emailRepository.findByEmailContaining(
+        Page<Email> emails = emailRepository.findByDomainIdAndEmailContainingOrderByEmail(
+            (long)2,//TODO utilizar o dominio do usuário logado
             email,
             new PageRequest(pageNum, limit, Sort.Direction.ASC, "id")
         );

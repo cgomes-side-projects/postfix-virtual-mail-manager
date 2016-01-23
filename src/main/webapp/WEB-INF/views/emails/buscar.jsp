@@ -43,7 +43,7 @@
               <table class="table table-striped">
                 <thead>
                 <tr>
-                  <th>ID</th>
+                  <th></th>
                   <th>Email</th>
                   <th>Criado em</th>
                   <th>Ativo</th>
@@ -52,8 +52,12 @@
                 <tbody>
                 <c:forEach items="${ emails.getContent() }" var="email">
                   <tr>
-                    <td>${ email.getId() }</td>
-                    <td>${ email.getEmail() }</td>
+                    <td>
+                      <a href="/emails/editar/${ email.getId() }" class="btn btn-primary btn-sm">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                    </td>
+                    <td>${ email.getEmail() }@${email.getDomain().getDomain() }</td>
                     <td>${ email.getDateCreated() }</td>
                     <td>${ email.getAtivo() }</td>
                   </tr>

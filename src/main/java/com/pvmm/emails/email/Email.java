@@ -1,5 +1,7 @@
 package com.pvmm.emails.email;
 
+import com.pvmm.emails.domains.Domain;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,9 @@ public class Email {
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name="id_users")
     private long    id;
+
+//    @Column(name="idemp_users", nullable = false)
+//    private long domainId;
 
     @Column(name="email_users")
     private String  email;
@@ -28,6 +33,11 @@ public class Email {
 
     @Column(name="ativo_users")
     private boolean ativo;
+
+
+    @ManyToOne(fetch = FetchType.EAGER )
+    @JoinColumn(name = "idemp_users", nullable = true)
+    private Domain domain;
 
 
     protected Email() {}
@@ -55,6 +65,14 @@ public class Email {
     public void setId(long id) {
         this.id = id;
     }
+
+//    public long getDomainId() {
+//        return domainId;
+//    }
+//
+//    public void setDomainId(long domainId) {
+//        this.domainId = domainId;
+//    }
 
     public String getEmail() {
         return email;
@@ -106,5 +124,13 @@ public class Email {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public Domain getDomain() {
+        return domain;
+    }
+
+    public void setDomain(Domain domain) {
+        this.domain = domain;
     }
 }
