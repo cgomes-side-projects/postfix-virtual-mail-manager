@@ -1,0 +1,21 @@
+.app-header {
+  z-index: 2000;
+  border: none;
+
+  .navbar-brand {
+    color: #eaebed !important;
+  }
+
+  @media (min-width: $screen-sm-min ) {
+    width: $sidebar-width;
+  }
+
+  button {
+    padding: 10px 17px;
+    font-size: 16px;
+    line-height: 30px;
+    text-decoration: none;
+    background-color: transparent;
+    border: 0;
+  }
+}

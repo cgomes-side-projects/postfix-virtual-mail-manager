@@ -1,0 +1,26 @@
+.app-content {
+  margin-top: -60px;
+  margin-left: $sidebar-width;
+
+  @media (max-width: $screen-sm - 1) {
+    margin-left: 0;
+    margin-top: 0;
+
+    transition: transform $sidebar-animation-duration ease;
+
+    .show-sidebar & {
+      position: fixed;
+      top: 60px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1015;
+      width: 100%;
+      overflow: hidden;
+      background-color: #f0f3f4;
+      transform: translate3d($sidebar-animation-width,0,0);
+      backface-visibility: hidden;
+    }
+  }
+
+}

@@ -1,0 +1,37 @@
+
+.panel {
+  .table-responsive .table {
+    tbody tr td,
+    thead tr th {
+      border-top: 1px solid #eaeff0;
+    }
+  }
+}
+
+.panel-heading {
+
+  .panel-default & {
+    background-color: #f6f8f8;
+  }
+
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.panel-footer {
+
+  background-color: #fff;
+
+  .text-muted {
+    margin: 8px 0;
+    font-size: 12px;
+  }
+
+  .pagination {
+    margin: 0;
+  }
+
+  .form-group {
+    margin-bottom: 0;
+  }
+}

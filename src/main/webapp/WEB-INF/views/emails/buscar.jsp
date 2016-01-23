@@ -21,7 +21,7 @@
               <div class="input-group">
                 <input type="email" class="form-control input-sm" placeholder="Digite um nome para filtrar" name="email" value="${ param.email }">
                 <span class="input-group-btn">
-                  <button class="btn btn-sm btn-primary" type="submit">Filtrar</button>
+                  <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-search"></i></button>
                 </span>
               </div>
             </div>
@@ -53,7 +53,7 @@
                 <c:forEach items="${ emails.getContent() }" var="email">
                   <tr>
                     <td>
-                      <a href="/emails/editar/${ email.getId() }" class="btn btn-primary btn-sm">
+                      <a href="/emails/edit/${ email.getId() }" class="btn btn-primary btn-sm">
                         <i class="fa fa-pencil"></i>
                       </a>
                     </td>

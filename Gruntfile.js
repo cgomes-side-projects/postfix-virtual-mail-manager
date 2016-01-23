@@ -39,7 +39,7 @@ module.exports = function(grunt) {
           outputStyle: 'expanded'
         },
         files: {
-          '<%= distPath %>/styles/admin-template.css': '<%= sourcesPath %>/styles/admin-template.scss'
+          '<%= distPath %>/styles/admin-template.css': '<%= sourcesPath %>/styles/admin-template/admin-template.scss'
         }
       },
       dist: {
