@@ -20,7 +20,7 @@ public class Paginator<T> {
     private boolean isFirst;
     private boolean isLast;
 
-    private long totalItems;
+    private long totalItems = 0;
     private long pageFirstItemNumber;
     private long pageLastItemNumber;
 

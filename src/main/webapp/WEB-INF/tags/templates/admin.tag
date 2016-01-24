@@ -47,6 +47,15 @@
     <ul class="nav nav-sidebar">
 
       <li class="header">
+        <i class="fa fa-globe"></i>
+        Gerenciar domínios
+      </li>
+      <li><a href="/domains">Buscar domínios</a></li>
+      <li><a href="/domains/create">Novo domínio</a></li>
+
+      <li class="separator"></li>
+
+      <li class="header">
         <i class="fa fa-envelope-o"></i>
         Gerenciar e-mails
       </li>
