@@ -1,8 +1,9 @@
 
 .panel {
-  .table-responsive .table {
+  .table {
     tbody tr td,
-    thead tr th {
+    thead tr th,
+    > thead:first-child > tr:first-child > th{
       border-top: 1px solid #eaeff0;
     }
   }
@@ -16,6 +17,12 @@
 
   font-size: 18px;
   font-weight: 300;
+}
+
+.panel-body {
+  .table-responsive {
+    margin: 0 -15px;
+  }
 }
 
 .panel-footer {

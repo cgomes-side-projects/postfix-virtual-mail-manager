@@ -28,8 +28,9 @@
   border-color: #d43f3a;
 }
 
-.panel .table-responsive .table tbody tr td,
-.panel .table-responsive .table thead tr th {
+.panel .table tbody tr td,
+.panel .table thead tr th,
+.panel .table > thead:first-child > tr:first-child > th {
   border-top: 1px solid #eaeff0;
 }
 
@@ -40,6 +41,10 @@
 
 .panel-default .panel-heading {
   background-color: #f6f8f8;
+}
+
+.panel-body .table-responsive {
+  margin: 0 -15px;
 }
 
 .panel-footer {

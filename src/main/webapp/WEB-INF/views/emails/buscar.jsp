@@ -53,7 +53,7 @@
                 <c:forEach items="${ emails.getContent() }" var="email">
                   <tr>
                     <td>
-                      <a href="/emails/edit/${ email.getId() }" class="btn btn-primary btn-sm">
+                      <a href="/emails/edit/${ email.getId() }" class="btn btn-primary btn-xs">
                         <i class="fa fa-pencil"></i>
                       </a>
                     </td>

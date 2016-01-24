@@ -70,5 +70,194 @@
 
       </fieldset>
     </form>
+
+
+    <fieldset class="panel panel-default">
+      <header class="panel-heading">
+        Enviar cópia para:
+      </header>
+      <main class="panel-body">
+        <form novalidate class="form-horizontal">
+          <div class="form-group">
+
+
+            <div class="col-sm-9 col-md-8">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Destinatário" />
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button">
+                    <i class="fa fa-plus-circle"></i>
+                    Adicionar
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>
+                  <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+                </td>
+                <td>
+                  teste@tests.com.br
+                </td>
+              </tr><tr>
+                <td>
+                  <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+                </td>
+                <td>
+                  teste@tests.com.br
+                </td>
+              </tr><tr>
+                <td>
+                  <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+                </td>
+                <td>
+                  teste@tests.com.br
+                </td>
+              </tr><tr>
+                <td>
+                  <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+                </td>
+                <td>
+                  teste@tests.com.br
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </main>
+    </fieldset>
+
+
+    <fieldset class="panel panel-default">
+      <header class="panel-heading">
+        Recebe cópias de:
+      </header>
+      <main class="panel-body">
+        <form novalidate class="form-horizontal">
+          <div class="form-group">
+
+
+            <div class="col-sm-9 col-md-8">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Remetente" />
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button">
+                    <i class="fa fa-plus-circle"></i>
+                    Adicionar
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+              </td>
+              <td>
+                teste@tests.com.br
+              </td>
+            </tr><tr>
+              <td>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+              </td>
+              <td>
+                teste@tests.com.br
+              </td>
+            </tr><tr>
+              <td>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+              </td>
+              <td>
+                teste@tests.com.br
+              </td>
+            </tr><tr>
+              <td>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+              </td>
+              <td>
+                teste@tests.com.br
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </main>
+    </fieldset>
+
+    <fieldset class="panel panel-default">
+      <header class="panel-heading">
+        Participação em grupos:
+      </header>
+      <main class="panel-body">
+        <form novalidate class="form-horizontal">
+          <div class="form-group">
+
+
+            <div class="col-sm-9 col-md-8">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Grupo" />
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button">
+                    <i class="fa fa-plus-circle"></i>
+                    Adicionar
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+              </td>
+              <td>
+                teste@tests.com.br
+              </td>
+            </tr><tr>
+              <td>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+              </td>
+              <td>
+                teste@tests.com.br
+              </td>
+            </tr><tr>
+              <td>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+              </td>
+              <td>
+                teste@tests.com.br
+              </td>
+            </tr><tr>
+              <td>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-ban"></i></button>
+              </td>
+              <td>
+                teste@tests.com.br
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </main>
+    </fieldset>
+
   </div>
 </template:admin>
