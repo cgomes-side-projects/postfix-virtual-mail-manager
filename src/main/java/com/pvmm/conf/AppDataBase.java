@@ -14,15 +14,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @ComponentScan(basePackages = "com.pvmm")
 public class AppDataBase extends WebMvcConfigurerAdapter {
 
+    DriverManagerDataSource dataSource;
+
     @Bean(name = "dataSource")
     public DriverManagerDataSource dataSource() {
-        DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/postfix_db");
-        driverManagerDataSource.setUsername("root");
-        driverManagerDataSource.setPassword("P@ssw0rd");
+        dataSource = new DriverManagerDataSource();
+//        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/postfix_db");
+        dataSource.setUrl("jdbc:h2:mem:postfix;MODE=MYSQL;INIT=CREATE SCHEMA IF NOT EXISTS \"public\";");
+        dataSource.setUsername("");
+        dataSource.setPassword("");
 
-        return driverManagerDataSource;
+        return dataSource;
     }
 
 }
