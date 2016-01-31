@@ -1,8 +1,11 @@
 package com.pvmm.domains.domain;
 
 import com.pvmm.emails.email.Email;
+import com.sun.istack.internal.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -14,9 +17,12 @@ public class Domain {
     @Column(insertable = false, updatable = false)
     private Integer id = 0;
 
-
-    @Column(nullable = false)
+    @Size(min=1, max=150)
     private String name;
+
+    @NotNull
+    private boolean active;
+
 
     @OneToMany(mappedBy = "domain", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public List<Email> emails;
@@ -25,8 +31,8 @@ public class Domain {
     @Override
     public String toString() {
         return String.format(
-            "Domain[id=%d, name='%s']",
-            id, name);
+            "Domain[id=%d, name='%s', active: %b]",
+            id, name, active);
     }
 
 
@@ -46,4 +52,11 @@ public class Domain {
         this.name = name;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 }
