@@ -1,6 +1,8 @@
 package com.pvmm.emails.email;
 
 import com.pvmm.domains.domain.Domain;
+import jdk.nashorn.internal.objects.annotations.Getter;
+import jdk.nashorn.internal.objects.annotations.Setter;
 
 import javax.persistence.*;
 
@@ -9,19 +11,23 @@ import javax.persistence.*;
 public class Email {
 
     @Id
+    @Column(nullable=true, unique=true, insertable = false)
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int    id;
 
+    @Column(nullable = false)
     private String  email;
+
+    @Column(nullable = false)
     private String  password;
 
 
-    @ManyToOne(fetch = FetchType.EAGER )
-    @JoinColumn(name = "domain_id", nullable = true)
-    public Domain domain;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL )
+    @JoinColumn(name = "domain_id", referencedColumnName = "id")
+    public Domain domain = new Domain();
 
 
-    protected Email() {}
+    public Email() {}
 
 
     public Email(String email, String password) {
@@ -33,8 +39,8 @@ public class Email {
     @Override
     public String toString() {
         return String.format(
-            "Email[id=%d, user='%s', password='%s']",
-            id, email, password);
+            "Email[id=%d, email='%s', password='%s', domainId: %d, domainName: '%s']",
+            id, email, password,  domain.getId(), domain.getName());
     }
 
     public int getId() {
@@ -60,4 +66,15 @@ public class Email {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Domain getDomain() {
+        return domain;
+    }
+
+    public void setDomain(Domain domain) {
+        this.domain = domain;
+    }
+
+
+
 }

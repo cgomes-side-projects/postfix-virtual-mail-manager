@@ -18,8 +18,7 @@ public class Domain {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", nullable = true)
+    @OneToMany(mappedBy = "domain", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public List<Email> emails;
 
 

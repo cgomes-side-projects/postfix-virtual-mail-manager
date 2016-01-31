@@ -19,11 +19,12 @@ public class AppDataBase extends WebMvcConfigurerAdapter {
     @Bean(name = "dataSource")
     public DriverManagerDataSource dataSource() {
         dataSource = new DriverManagerDataSource();
-//        driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-//        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/postfix_db");
+//        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//        dataSource.setUrl("jdbc:mysql://localhost:3306/postfix_mail_manager");
+//        dataSource.setUsername("root");
+//        dataSource.setPassword("P@ssw0rd");
+        //dataSource.setUrl("jdbc:h2:mem:postfix;MODE=MYSQL;DATABASE_TO_UPPER=false;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;TRACE_LEVEL_FILE=2;INIT=CREATE SCHEMA IF NOT EXISTS \"public\";");
         dataSource.setUrl("jdbc:h2:mem:postfix;MODE=MYSQL;DATABASE_TO_UPPER=false;DB_CLOSE_DELAY=-1;TRACE_LEVEL_FILE=2;INIT=CREATE SCHEMA IF NOT EXISTS \"public\";");
-        dataSource.setUsername("");
-        dataSource.setPassword("");
 
         return dataSource;
     }

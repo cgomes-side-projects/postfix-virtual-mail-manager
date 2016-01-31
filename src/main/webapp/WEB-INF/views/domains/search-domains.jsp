@@ -29,7 +29,7 @@
       </form>
 
       <c:choose>
-        <c:when test="${ domains.getTotalElements() == 0 }">
+        <c:when test="${ domains.getNumberOfElements() == 0 }">
           <div class="bg-danger text-center">
             <p class="wrapper">
               <i class="glyphicon glyphicon-info-sign"></i>
@@ -58,26 +58,21 @@
             </table>
           </div>
 
+          <footer class="panel-footer">
+            <div class="row">
+              <aside class="col-md-6 text-muted text-center"> Exibindo ${ paginator.getPageFirstItemNumber() } - ${ paginator.getPageLastItemNumber() }  de ${ paginator.getTotalItems() } registros</aside>
+              <aside class="col-md-6">
+                <c:if test="${ paginator.getTotalPages() > 1 }">
+                  <utils:paginator instance="${ paginator }"/>
+                </c:if>
+              </aside>
+            </div>
+          </footer>
 
         </c:otherwise>
       </c:choose>
 
-
-      <c:if test="${paginator.getTotalItems() != 0}">
-        <footer class="panel-footer">
-          <div class="row">
-            <aside class="col-md-6 text-muted text-center"> Exibindo ${ paginator.getPageFirstItemNumber() } - ${ paginator.getPageLastItemNumber() }  de ${ paginator.getTotalItems() } registros</aside>
-            <aside class="col-md-6">
-              <c:if test="${ paginator.getTotalPages() > 1 }">
-                <utils:paginator instance="${ paginator }"/>
-              </c:if>
-            </aside>
-          </div>
-        </footer>
-      </c:if>
-
     </fieldset>
-
   </div>
 
 </template:admin>

@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class EditController {
+public class EmailEditController {
 
     @Autowired
     private EmailRepository emailRepository;
 
 
     @RequestMapping(value = "emails/edit/{id}", method = RequestMethod.GET)
-    public String editEmail( @PathVariable("id") long id, Model model) {
-        Email email = emailRepository.findByIdAndDomainId(id, (long)6);
+    public String editEmail( @PathVariable("id") Email email, Model model) {
+        //Email email = emailRepository.findByIdAndDomainId(id, 6);
 
         if( email == null ) {
             return this.redirect();
@@ -32,6 +32,6 @@ public class EditController {
 
     @RequestMapping(value = "emails/edit", method = RequestMethod.GET)
     public String redirect() {
-        return "redirect:/emails/buscar";
+        return "redirect:/emails";
     }
 }

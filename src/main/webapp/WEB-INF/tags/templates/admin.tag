@@ -59,8 +59,8 @@
         <i class="fa fa-envelope-o"></i>
         Gerenciar e-mails
       </li>
-      <li><a href="/emails/buscar">Buscar e-mails</a></li>
-      <li><a href="">Novo e-mail</a></li>
+      <li><a href="/emails">Buscar e-mails</a></li>
+      <li><a href="/emails/create">Novo e-mail</a></li>
 
       <li class="separator"></li>
 

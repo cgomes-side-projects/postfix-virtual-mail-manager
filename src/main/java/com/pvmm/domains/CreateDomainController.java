@@ -2,6 +2,7 @@ package com.pvmm.domains;
 
 import com.pvmm.domains.domain.Domain;
 import com.pvmm.domains.domain.DomainRepository;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -11,7 +11,7 @@
       <fieldset class="panel panel-default">
 
         <header class="panel-heading">
-          ${title}
+          Buscar e-mails
         </header>
 
         <form class="container-fluid wrapper" novalidate>
@@ -29,9 +29,9 @@
         </form>
 
         <c:choose>
-          <c:when test="${ empty emails }">
+          <c:when test="${ emails.getNumberOfElements() == 0 }">
             <div class="bg-danger text-center">
-              <p>
+              <p class="wrapper">
                 <i class="glyphicon glyphicon-info-sign"></i>
                 Nenhum e-mail encontrado
               </p>
@@ -57,9 +57,9 @@
                         <i class="fa fa-pencil"></i>
                       </a>
                     </td>
-                    <td>${ email.getEmail() }@${email.getDomain().getDomain() }</td>
-                    <td>${ email.getDateCreated() }</td>
-                    <td>${ email.getAtivo() }</td>
+                    <td>${ email.getEmail() }@${email.getDomain().getName() }</td>
+                    <td></td>
+                    <td></td>
                   </tr>
                 </c:forEach>
                 </tbody>
@@ -67,22 +67,22 @@
             </div>
 
 
+              <footer class="panel-footer">
+                <div class="row">
+                  <aside class="col-md-6 text-muted text-center"> Exibindo ${ paginator.getPageFirstItemNumber() } - ${ paginator.getPageLastItemNumber() }  de ${ paginator.getTotalItems() } registros</aside>
+                  <aside class="col-md-6">
+                    <c:if test="${ emails.getTotalPages() > 1 }">
+                      <utils:paginator instance="${ paginator }"/>
+                    </c:if>
+                  </aside>
+                </div>
+              </footer>
           </c:otherwise>
         </c:choose>
 
 
-        <footer class="panel-footer">
-          <div class="row">
-            <aside class="col-md-6 text-muted text-center"> Exibindo ${ paginator.getPageFirstItemNumber() } - ${ paginator.getPageLastItemNumber() }  de ${ paginator.getTotalItems() } registros</aside>
-            <aside class="col-md-6">
-              <c:if test="${ emails.getTotalPages() > 1 }">
-                <utils:paginator instance="${ paginator }"/>
-              </c:if>
-            </aside>
-          </div>
-        </footer>
-      </fieldset>
 
+      </fieldset>
   </div>
 
 </template:admin>
