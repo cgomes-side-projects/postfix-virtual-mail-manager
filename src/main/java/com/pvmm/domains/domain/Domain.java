@@ -1,7 +1,6 @@
 package com.pvmm.domains.domain;
 
 import com.pvmm.emails.email.Email;
-import com.sun.istack.internal.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,7 +16,7 @@ public class Domain {
     @Column(insertable = false, updatable = false)
     private Integer id = 0;
 
-    @Size(min=1, max=150)
+    @Size(min=1, max=50)
     private String name;
 
     @NotNull

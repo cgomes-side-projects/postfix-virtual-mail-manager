@@ -1,8 +1,8 @@
 <%@page contentType="text/html; charset=UTF-8" %>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib tagdir="/WEB-INF/tags/templates/" prefix="template" %>
-<%@taglib tagdir="/WEB-INF/tags/utils/" prefix="utils" %>
+<%@taglib prefix="form"     uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c"        uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="template" tagdir="/WEB-INF/tags/templates/" %>
+<%@taglib prefix="utils"    tagdir="/WEB-INF/tags/utils/" %>
 
 <template:admin>
 
@@ -15,6 +15,8 @@
       </header>
 
       <form class="container-fluid wrapper" novalidate>
+
+        <utils:messages />
 
         <div class="row">
           <div class="col-sm-8 col-sm-push-2">

@@ -2,10 +2,20 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib tagdir="/WEB-INF/tags/templates/" prefix="template" %>
+<%@taglib tagdir="/WEB-INF/tags/utils/" prefix="utils" %>
+
+<c:choose>
+  <c:when test="${domain.getId() == 0 }">
+    <c:set var="action" value="/domains/create" />
+  </c:when>
+  <c:otherwise>
+    <c:set var="action" value='"/domains/edit/"${  domain.getId() }' />
+  </c:otherwise>
+</c:choose>
 
 <template:admin>
   <div class="container-fluid">
-    <form:form role="form" method="post" action="/domains/edit/${domain.getId()}" modelAttribute="Domain" >
+    <form:form role="form" method="post" action="${action}" modelAttribute="domain" >
       <fieldset class="panel panel-default">
 
         <header class="panel-heading">
@@ -15,11 +25,7 @@
 
         <main class="form-horizontal wrapper">
 
-          <c:if test="${! empty message}">
-            <p class="wrapper bg-success">
-                ${message}
-            </p>
-          </c:if>
+          <utils:messages />
 
           <div class="form-group">
             <label class="control-label col-sm-3 col-md-2">Nome:</label>
