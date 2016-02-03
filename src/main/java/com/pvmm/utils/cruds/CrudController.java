@@ -1,20 +1,25 @@
 package com.pvmm.utils.cruds;
 
+import com.pvmm.utils.Paginator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+//TODO criar metodos para deletar
 public abstract class CrudController<T extends CrudEntityInterface> implements CrudControllerInterface<T> {
 
     protected String viewsDir;
     protected Class<T> entityClass;
 
+    @Autowired
+    private HttpServletRequest request;
 
     public CrudController(String viewsDir, Class<T> entityClass) {
         this.viewsDir = viewsDir;
@@ -23,6 +28,24 @@ public abstract class CrudController<T extends CrudEntityInterface> implements C
 
 
 
+    @RequestMapping()
+    public String index(Model model,
+                        Pageable pageable,
+                        @RequestParam(name = "query", defaultValue = "") String query) {
+        Page<T> records = searchOnRepository(query, pageable);
+
+        model.addAttribute("records",  records);
+        preparePaginator(records, model);
+
+        return viewPath("search");
+    }
+
+
+    private void preparePaginator( Page<T> records, Model model ) {
+        Paginator<T> paginator = new Paginator<>(records, request);
+
+        model.addAttribute("paginator", paginator);
+    }
 
 
 

@@ -5,6 +5,8 @@ import com.pvmm.domains.domain.DomainRepository;
 import com.pvmm.utils.cruds.CrudController;
 import com.pvmm.utils.cruds.CrudControllerInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,9 +22,14 @@ public class DomainCrudController extends CrudController<Domain> implements Crud
     }
 
 
-
     @Override
     public DomainRepository getRepository() {
         return repository;
+    }
+
+
+    @Override
+    public Page<Domain> searchOnRepository(String query, Pageable pageable) {
+        return repository.findByNameContaining(query, pageable);
     }
 }

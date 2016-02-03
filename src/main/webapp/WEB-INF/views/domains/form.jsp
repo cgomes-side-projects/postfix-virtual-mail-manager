@@ -59,7 +59,7 @@
           <div class="form-group">
             <label class="col-sm-3 col-md-2"></label>
             <div class="col-sm-5">
-              <a href="/domains" class="btn btn-sm btn-warning">
+              <a href="../" class="btn btn-sm btn-warning">
                 <i class="fa fa-arrow-left"></i>
                 voltar
               </a>

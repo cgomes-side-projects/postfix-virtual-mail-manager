@@ -31,7 +31,7 @@
       </form>
 
       <c:choose>
-        <c:when test="${ domains.getNumberOfElements() == 0 }">
+        <c:when test="${ records.getNumberOfElements() == 0 }">
           <div class="bg-danger text-center">
             <p class="wrapper">
               <i class="glyphicon glyphicon-info-sign"></i>
@@ -44,10 +44,10 @@
           <div class="table-responsive">
             <table class="table table-striped">
               <tbody>
-              <c:forEach items="${ domains.getContent() }" var="domain">
+              <c:forEach items="${ records.getContent() }" var="domain">
                 <tr>
                   <td class="col-xs-1">
-                    <a href="/domains/edit/${ domain.getId() }" class="btn btn-primary btn-xs">
+                    <a href="/domain/edit/${ domain.getId() }" class="btn btn-primary btn-xs">
                       <i class="fa fa-pencil"></i>
                     </a>
                   </td>

@@ -50,8 +50,8 @@
         <i class="fa fa-globe"></i>
         Gerenciar domínios
       </li>
-      <li><a href="/domains">Buscar domínios</a></li>
-      <li><a href="/domains/create">Novo domínio</a></li>
+      <li><a href="/domain">Buscar domínios</a></li>
+      <li><a href="/domain/create">Novo domínio</a></li>
 
       <li class="separator"></li>
 
