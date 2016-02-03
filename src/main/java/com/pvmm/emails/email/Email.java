@@ -1,14 +1,13 @@
 package com.pvmm.emails.email;
 
 import com.pvmm.domains.domain.Domain;
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
+import com.pvmm.utils.cruds.CrudEntityInterface;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "virtual_users")
-public class Email {
+public class Email implements CrudEntityInterface {
 
     @Id
     @Column(nullable=true, unique=true, insertable = false)
@@ -23,8 +22,8 @@ public class Email {
 
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL )
-    @JoinColumn(name = "domain_id", referencedColumnName = "id")
-    public Domain domain = new Domain();
+    @JoinColumn(name = "domain_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Domain domain;
 
 
     public Email() {}
@@ -68,6 +67,10 @@ public class Email {
     }
 
     public Domain getDomain() {
+        if( domain == null ) {
+            domain = new Domain();
+        }
+
         return domain;
     }
 

@@ -29,7 +29,7 @@
         </form>
 
         <c:choose>
-          <c:when test="${ emails.getNumberOfElements() == 0 }">
+          <c:when test="${ records.getNumberOfElements() == 0 }">
             <div class="bg-danger text-center">
               <p class="wrapper">
                 <i class="glyphicon glyphicon-info-sign"></i>
@@ -50,10 +50,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${ emails.getContent() }" var="email">
+                <c:forEach items="${ records.getContent() }" var="email">
                   <tr>
                     <td>
-                      <a href="/emails/edit/${ email.getId() }" class="btn btn-primary btn-xs">
+                      <a href="/email/edit/${ email.getId() }" class="btn btn-primary btn-xs">
                         <i class="fa fa-pencil"></i>
                       </a>
                     </td>
@@ -71,7 +71,7 @@
                 <div class="row">
                   <aside class="col-md-6 text-muted text-center"> Exibindo ${ paginator.getPageFirstItemNumber() } - ${ paginator.getPageLastItemNumber() }  de ${ paginator.getTotalItems() } registros</aside>
                   <aside class="col-md-6">
-                    <c:if test="${ emails.getTotalPages() > 1 }">
+                    <c:if test="${ records.getTotalPages() > 1 }">
                       <utils:paginator instance="${ paginator }"/>
                     </c:if>
                   </aside>
