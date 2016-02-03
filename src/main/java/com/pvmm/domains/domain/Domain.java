@@ -1,6 +1,7 @@
 package com.pvmm.domains.domain;
 
 import com.pvmm.emails.email.Email;
+import com.pvmm.utils.cruds.CrudEntityInterface;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -9,12 +10,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "virtual_domains")
-public class Domain {
+public class Domain implements CrudEntityInterface {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO )
     @Column(insertable = false, updatable = false)
-    private Integer id = 0;
+    private int id = 0;
 
     @Size(min=1, max=50)
     private String name;
@@ -35,11 +36,13 @@ public class Domain {
     }
 
 
-    public Integer getId() {
+    @Override
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    @Override
+    public void setId(int id) {
         this.id = id;
     }
 

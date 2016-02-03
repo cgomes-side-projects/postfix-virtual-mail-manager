@@ -5,17 +5,17 @@
 <%@taglib tagdir="/WEB-INF/tags/utils/" prefix="utils" %>
 
 <c:choose>
-  <c:when test="${domain.getId() == 0 }">
-    <c:set var="action" value="/domains/create" />
+  <c:when test="${formModel.getId() == 0 || formModel.getId() == null }">
+    <c:set var="action" value="/domain/create" />
   </c:when>
   <c:otherwise>
-    <c:set var="action" value='"/domains/edit/"${  domain.getId() }' />
+    <c:set var="action" value="/domain/edit/${  formModel.getId() }" />
   </c:otherwise>
 </c:choose>
 
 <template:admin>
   <div class="container-fluid">
-    <form:form role="form" method="post" action="${action}" modelAttribute="domain" >
+    <form:form role="form" method="post" action="${action}" modelAttribute="formModel" >
       <fieldset class="panel panel-default">
 
         <header class="panel-heading">
@@ -31,7 +31,7 @@
             <label class="control-label col-sm-3 col-md-2">Nome:</label>
 
             <div class="col-sm-9 col-md-6">
-              <input name="name" class="form-control" placeholder="Digite o domínio completo" value="${domain.getName()}" type="text" />
+              <input name="name" class="form-control" placeholder="Digite o domínio completo" value="${formModel.getName()}" type="text" />
               <form:errors path="name" cssClass="error bg-danger" />
             </div>
           </div>
@@ -42,11 +42,11 @@
             <div class="col-md-3">
               <div class="radio">
                 <label>
-                  <input type="radio" name="active" id="domainActive1" value="1" ${ domain.isActive() ? "checked" : "" } />
+                  <input type="radio" name="active" id="domainActive1" value="1" ${ formModel.isActive() ? "checked" : "" } />
                   Sim
                 </label>
                 <label>
-                  <input type="radio" name="active" id="domainActive2" value="0" ${ ! domain.isActive() ? "checked" : "" } />
+                  <input type="radio" name="active" id="domainActive2" value="0" ${ ! formModel.isActive() ? "checked" : "" } />
                   Não
                 </label>
               </div>
